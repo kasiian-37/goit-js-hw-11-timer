@@ -1,7 +1,5 @@
 export class CountdownTimer {
   constructor({ selector, targetDate }) {
-    this.intervalId = null;
-    this._selector = selector;
     this._targetDate = targetDate;
     this.refs = {
       days: document.querySelector(`${selector} [data-value="days"]`),
@@ -12,8 +10,7 @@ export class CountdownTimer {
   }
 
   init() {
-    this.setTimerDefaultValue();
-    this.intervalId = setInterval(() => {
+    setInterval(() => {
       const startTime = Date.now();
       const deltaTime = this._targetDate - startTime;
       const time = this.getTimeComponents(deltaTime);
@@ -41,12 +38,5 @@ export class CountdownTimer {
     this.refs.hours.textContent = hours;
     this.refs.mins.textContent = mins;
     this.refs.secs.textContent = secs;
-  }
-
-  setTimerDefaultValue() {
-    this.refs.days.textContent = 0;
-    this.refs.hours.textContent = 0;
-    this.refs.mins.textContent = 0;
-    this.refs.secs.textContent = 0;
   }
 }

@@ -6,4 +6,6 @@ const timer = new CountdownTimer({
   targetDate: new Date('Jan 16, 2021'),
 });
 
+// '<span class="number-wrapper"><div class="line"></div><span class="number end">Time is up!</span></span>'
+
 document.addEventListener('DOMContentLoaded', timer.init.bind(timer));
